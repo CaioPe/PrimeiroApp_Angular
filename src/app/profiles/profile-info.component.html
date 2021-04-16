@@ -1,0 +1,48 @@
+<h2>PROFILE</h2>
+
+<form #profileForm="ngForm">
+    <div class="form-group">
+     <label class="col-sm2 col-form-label"> Nome: </label>
+       <div class="col-sm10">
+           <input [(ngModel)] = "person.name" required name="name" #personName="ngModel" [ngClass]="{'is-invalid':personName.invalid}" class= "form-control">
+           <div class="invalid-feedback"> Course name is required </div>
+        </div>
+   </div>
+
+
+    <div class="form-group">
+        <label class="col-sm2 col-form-label"> Estilo: </label>
+            <div class="col-sm10">
+                <input [(ngModel)] = "person.code" required name="code" #personCode="ngModel" [ngClass]="{'is-invalid':personCode.invalid}" class= "form-control">
+                <div class="invalid-feedback"> Description is required </div>
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm2 col-form-label"> Idade: </label>
+            <div class="col-sm10">
+                <input [(ngModel)] = "person.age" required name="age" #personAge="ngModel" [ngClass]="{'is-invalid':personAge.invalid}" class= "form-control">
+                <div class="invalid-feedback"> Age name is required </div>
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm2 col-form-label"> Score: </label>
+            <div class="col-sm10">
+                <input [(ngModel)] = "person.rating" required name="rating" type="number" #personRating="ngModel" [ngClass]="{'is-invalid':personRating.invalid}" class= "form-control">
+                <div class="invalid-feedback"> Score is required </div>
+            </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm2 col-form-label"> Desrcrição: </label>
+            <div class="col-sm10">
+                <textarea [(ngModel)] = "person.description" required name="description" #personDescription="ngModel" [ngClass]="{'is-invalid':personDescription.invalid}" class= "form-control"></textarea>
+                <div class="invalid-feedback"> Description is required </div>
+            </div>
+    </div>
+
+<button [disabled]="profileForm.invalid" (click)="save()" class="btn btn-primary mr-2">Salvar</button> 
+<button [routerLink]="['/profiles']" class="btn btn-secondary">Voltar</button> 
+
+</form>

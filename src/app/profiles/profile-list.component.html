@@ -1,0 +1,35 @@
+<h2> Matches: </h2>
+
+<div class="form-group">
+     <label class="col-sm2 col-form-label"> Filtrar nome: </label>
+    <div class="col-sm10">
+        <input [(ngModel)] = "filter" class= "form-control">
+    </div>
+</div>
+
+<table class='table table-striped'>
+    <thead>
+        <tr>
+            <th>ProfilePic</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Estilo</th>
+            <th>Idade</th>
+            <th>Score</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let person of FilteredProfiles">
+        <td><img [src]="person.imageUrl" width="75" height="75"></td>
+        <td>{{person.name}}</td>
+        <td>{{person.description}}</td>
+        <td>{{person.code | uppercase }}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.rating}}</td>
+        <td><a [routerLink]="['/profiles/info', person.id]" class="btn btn-primary">Edit</a></td>
+        </tr>
+    </tbody>
+
+</table>
+
